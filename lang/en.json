@@ -466,6 +466,7 @@
 "DND5E.DeathSaveUnnecessary": "You do not need to roll death saves because you have a positive number of hit points or have already reached 3 successes or failures.",
 "DND5E.Default": "Default",
 "DND5E.DefaultAbilityCheck": "Default Ability Check",
+"DND5E.DeterminedAutomatically": "Determined Automatically",
 "DND5E.Description": "Description",
 "DND5E.DescriptionChat": "Chat Description",
 "DND5E.DescriptionSummary": "Summary Description",

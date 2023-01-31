@@ -51,7 +51,9 @@ export default class EquipmentData extends SystemDataModel.mixin(
         required: true, integer: true, min: 0, label: "DND5E.ItemRequiredStr"
       }),
       stealth: new foundry.data.fields.BooleanField({required: true, label: "DND5E.ItemEquipmentStealthDisav"}),
-      proficient: new foundry.data.fields.BooleanField({required: true, initial: true, label: "DND5E.Proficient"})
+      proficient: new foundry.data.fields.NumberField({
+        required: true, min: 0, max: 1, integer: true, initial: null, label: "DND5E.ProficiencyLevel"
+      })
     });
   }
 
@@ -64,6 +66,7 @@ export default class EquipmentData extends SystemDataModel.mixin(
     super.migrateData(source);
     EquipmentData.#migrateArmor(source);
     EquipmentData.#migrateStrength(source);
+    EquipmentData.#migrateProficient(source);
   }
 
   /* -------------------------------------------- */
@@ -92,6 +95,16 @@ export default class EquipmentData extends SystemDataModel.mixin(
     if ( typeof source.strength !== "string" ) return;
     if ( source.strength === "" ) source.strength = null;
     if ( Number.isNumeric(source.strength) ) source.strength = Number(source.strength);
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Migrate the proficient field to convert boolean values.
+   * @param {object} source  The candidate source data from which the model will be constructed.
+   */
+  static #migrateProficient(source) {
+    if ( typeof source.proficient === "boolean" ) source.proficient = Number(source.proficient);
   }
 
   /* -------------------------------------------- */

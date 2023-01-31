@@ -35,7 +35,9 @@ export default class WeaponData extends SystemDataModel.mixin(
       properties: new MappingField(new foundry.data.fields.BooleanField(), {
         required: true, initialKeys: CONFIG.DND5E.weaponProperties, label: "DND5E.ItemWeaponProperties"
       }),
-      proficient: new foundry.data.fields.BooleanField({required: true, initial: true, label: "DND5E.Proficient"})
+      proficient: new foundry.data.fields.NumberField({
+        required: true, min: 0, max: 1, integer: true, initial: null, label: "DND5E.ProficiencyLevel"
+      })
     });
   }
 
@@ -67,11 +69,11 @@ export default class WeaponData extends SystemDataModel.mixin(
   /* -------------------------------------------- */
 
   /**
-   * Migrate the proficient field to remove non-boolean values.
+   * Migrate the proficient field to convert boolean values.
    * @param {object} source  The candidate source data from which the model will be constructed.
    */
   static #migrateProficient(source) {
-    if ( typeof source.proficient === "number" ) source.proficient = Boolean(source.proficient);
+    if ( typeof source.proficient === "boolean" ) source.proficient = Number(source.proficient);
   }
 
   /* -------------------------------------------- */

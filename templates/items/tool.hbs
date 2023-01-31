@@ -76,7 +76,8 @@
             <div class="form-group">
                 <label>{{ localize "DND5E.ItemToolProficiency" }}</label>
                 <select name="system.proficient" data-dtype="Number">
-                    {{selectOptions config.proficiencyLevels selected=system.proficient}}
+                    {{selectOptions config.proficiencyLevels selected=system.proficient
+                                    blank=(localize "DND5E.DeterminedAutomatically")}}
                 </select>
             </div>
 
@@ -84,7 +85,8 @@
             <div class="form-group">
                 <label>{{ localize "DND5E.DefaultAbilityCheck" }}</label>
                 <select name="system.ability">
-                    {{selectOptions config.abilities selected=system.ability blank=(localize "DND5E.Default")}}
+                    {{selectOptions config.abilities selected=system.ability labelAttr="label"
+                                    blank=(localize "DND5E.Default")}}
                 </select>
             </div>
 
