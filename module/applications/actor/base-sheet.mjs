@@ -931,7 +931,7 @@ export default class ActorSheet5e extends ActorSheet {
     // Cycle to the next or previous skill level
     const levels = [0, 0.5, 1, 1.5, 2];
     let idx = levels.indexOf(value);
-    const next = idx + (event.type === "click" ? 1 : 3);
+    const next = idx + (event.type === "click" ? 1 : 2);
     field.value = levels[next % 5];
 
     // Update the field value and save the form
@@ -1360,7 +1360,24 @@ export default class ActorSheet5e extends ActorSheet {
     if ( event.currentTarget.classList.contains("disabled") ) return;
     event.preventDefault();
     const field = event.currentTarget.previousElementSibling;
-    return this.actor.update({[field.name]: 1 - parseInt(field.value)});
+    const value = parseFloat(field.value);
+    const levels = [0, 0.5, 1, 1.5, 2];
+    let idx = levels.indexOf(value);
+    const next = idx + (event.type === "click" ? 1 : 2);
+    field.value = levels[next % 5];
+    return this.actor.update({[field.name]:parseFloat(field.value)});
+    // const parent = event.currentTarget.closest(".skill");
+    // const field = parent.querySelector('[name$=".value"]');
+    // const value = this.actor._source.system.skills[parent.dataset.skill]?.value ?? 0;
+
+    // // Cycle to the next or previous skill level
+    // const levels = [0, 0.5, 1, 1.5, 2];
+    // let idx = levels.indexOf(value);
+    // const next = idx + (event.type === "click" ? 1 : 3);
+    // field.value = levels[next % 5];
+
+    // // Update the field value and save the form
+    // return this._onSubmit(event);
   }
 
   /* -------------------------------------------- */
