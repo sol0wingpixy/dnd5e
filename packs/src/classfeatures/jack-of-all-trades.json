@@ -7,7 +7,7 @@
   "type": "feat",
   "system": {
     "description": {
-      "value": "<p>Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus.</p>",
+      "value": "<p>Starting at 2nd level, you become Trained in all skills and in all ability checks that don’t already include your proficiency bonus.</p>",
       "chat": "",
       "unidentified": ""
     },
@@ -112,6 +112,6 @@
     "coreVersion": "10.291",
     "createdTime": 1661787234402,
     "modifiedTime": 1672334906819,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "lastModifiedBy": "Sol0WingPixy"
   }
 }
