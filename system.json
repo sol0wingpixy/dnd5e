@@ -106,6 +106,15 @@
       "flags": {}
     },
     {
+      "name": "feats",
+      "label": "Feats (Pixy)",
+      "system": "dnd5e",
+      "path": "packs/feats.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
+    },
+    {
       "name": "races",
       "label": "Racial Features (SRD)",
       "system": "dnd5e",

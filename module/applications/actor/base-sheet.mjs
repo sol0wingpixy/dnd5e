@@ -586,10 +586,11 @@ export default class ActorSheet5e extends ActorSheet {
    */
   _getProficiencyIcon(level) {
     const icons = {
-      0: '<i class="far fa-circle"></i>',
-      0.5: '<i class="fas fa-adjust"></i>',
-      1: '<i class="fas fa-check"></i>',
-      2: '<i class="fas fa-check-double"></i>'
+      0: '<i class="fa-duotone fa-circle"></i>',
+      0.5: '<i class="fa-duotone fa-circle-quarter"></i>',
+      1: '<i class="fa-duotone fa-circle-half"></i>',
+      1.5: '<i class="fa-duotone fa-circle-three-quarters"></i>',
+      2: '<i class="fa-solid fa-circle"></i>'
     };
     return icons[level] || icons[0];
   }
@@ -928,10 +929,10 @@ export default class ActorSheet5e extends ActorSheet {
     const value = this.actor._source.system.skills[parent.dataset.skill]?.value ?? 0;
 
     // Cycle to the next or previous skill level
-    const levels = [0, 1, 0.5, 2];
+    const levels = [0, 0.5, 1, 1.5, 2];
     let idx = levels.indexOf(value);
     const next = idx + (event.type === "click" ? 1 : 3);
-    field.value = levels[next % 4];
+    field.value = levels[next % 5];
 
     // Update the field value and save the form
     return this._onSubmit(event);

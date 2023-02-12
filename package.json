@@ -7,7 +7,9 @@
     "build:json": "gulp extractPacks",
     "build:watch": "gulp",
     "lint": "gulp lint",
-    "lint:fix": "gulp lint --fix"
+    "lint:fix": "gulp lint --fix",
+    "build:feats": "gulp compilePacks --pack feats",
+    "build:backgrounds": "gulp compilePacks --pack backgrounds"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.4",

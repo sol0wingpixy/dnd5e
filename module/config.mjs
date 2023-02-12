@@ -1351,9 +1351,10 @@ preLocalize("transformationPresets", { sort: true, keys: ["label"] });
  */
 DND5E.proficiencyLevels = {
   0: "DND5E.NotProficient",
-  1: "DND5E.Proficient",
   0.5: "DND5E.HalfProficient",
-  2: "DND5E.Expertise"
+  1: "DND5E.Proficient",
+  1.5: "DND5E.ProficientPlus",
+  2: "DND5E.Expertise",
 };
 preLocalize("proficiencyLevels");
 

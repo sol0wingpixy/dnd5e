@@ -12,7 +12,7 @@
     "source": "SRD 5.1",
     "identifier": "bard",
     "levels": 1,
-    "hitDice": "d8",
+    "hitDice": "d12",
     "hitDiceUsed": 0,
     "advancement": [
       {
@@ -28,7 +28,8 @@
         "configuration": {
           "items": [
             "Compendium.dnd5e.classfeatures.u4NLajXETJhJU31v",
-            "Compendium.dnd5e.classfeatures.hpLNiGq7y67d2EHA"
+            "Compendium.dnd5e.classfeatures.hpLNiGq7y67d2EHA",
+            "Compendium.dnd5e.classfeatures.pixy000000000002"
           ],
           "optional": false,
           "spell": {
@@ -50,7 +51,8 @@
         "configuration": {
           "items": [
             "Compendium.dnd5e.classfeatures.ezWijmCnlnQ9ZRX2",
-            "Compendium.dnd5e.classfeatures.he8RpPXwSl2lVSIk"
+            "Compendium.dnd5e.classfeatures.he8RpPXwSl2lVSIk",
+            "Compendium.dnd5e.classfeatures.s0Cc2zcX0JzIgam5"
           ],
           "optional": false,
           "spell": {
@@ -89,11 +91,34 @@
         "title": "Features"
       },
       {
+        "_id": "bardlevel0000004",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            "Compendium.dnd5e.classfeatures.s0Cc2zcX0JzIgam5",
+            "Compendium.dnd5e.classfeatures.pixy000000000002"
+          ],
+          "optional": false,
+          "spell": {
+            "ability": "",
+            "preparation": "",
+            "uses": {
+              "max": "",
+              "per": ""
+            }
+          }
+        },
+        "value": {},
+        "level": 4,
+        "title": "Features"
+      },
+      {
         "_id": "qg5x53gnsdjd4a0l",
         "type": "ItemGrant",
         "configuration": {
           "items": [
-            "Compendium.dnd5e.classfeatures.3VDZGs5Ug3hIE322"
+            "Compendium.dnd5e.classfeatures.3VDZGs5Ug3hIE322",
+            "Compendium.dnd5e.classfeatures.pixy000000000000"
           ],
           "optional": false,
           "spell": {

@@ -7,7 +7,7 @@
   "type": "feat",
   "system": {
     "description": {
-      "value": "<p>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>",
+      "value": "<p>When you reach 2nd level, and again at 4th, 6th, 8th, 10th, 12th, 14th, 16th, 18th and 19th level, you can increase one ability score of your choice by 1, to a maximum of 20.</p>",
       "chat": "",
       "unidentified": ""
     },
@@ -66,7 +66,7 @@
       "value": "class",
       "subtype": ""
     },
-    "requirements": "Barbarian 4, Bard 4, Cleric 4, Druid 4, Monk 4, Paladin 4, Ranger 4, Sorcerer 4, Warlock 4, Wizard 4",
+    "requirements": "Barbarian 2, Bard 2, Cleric 2, Druid 2, Fighter 2, Monk 2, Paladin 2, Ranger 2, Rogue 2, Sorcerer 2, Warlock 2, Wizard 2",
     "recharge": {
       "value": null,
       "charged": false
@@ -83,6 +83,6 @@
     "coreVersion": "10.291",
     "createdTime": 1661787234431,
     "modifiedTime": 1672334317018,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "lastModifiedBy": "Sol0WingPixy"
   }
 }

@@ -7,7 +7,7 @@
   "type": "feat",
   "system": {
     "description": {
-      "value": "<p>When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>",
+      "value": "<p>When you reach 6th level, and again at 14th level, you can increase one ability score of your choice by 2, increase two ability scores of your choice by 1, or increase one ability score of your choice by 1 and gain a feat. As normal, you can't increase an ability score above 20 using this feature.</p>",
       "chat": "",
       "unidentified": ""
     },
@@ -66,7 +66,7 @@
       "value": "class",
       "subtype": ""
     },
-    "requirements": "Fighter 4",
+    "requirements": "Fighter 6",
     "recharge": {
       "value": null,
       "charged": false
@@ -83,6 +83,6 @@
     "coreVersion": "10.291",
     "createdTime": 1661787234431,
     "modifiedTime": 1672334314469,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "lastModifiedBy": "Sol0WingPixy"
   }
 }
