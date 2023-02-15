@@ -106,10 +106,19 @@
       "flags": {}
     },
     {
-      "name": "feats",
-      "label": "Feats (Pixy)",
+      "name": "feats-5e",
+      "label": "Feats (5e)",
       "system": "dnd5e",
-      "path": "packs/feats.db",
+      "path": "packs/feats-5e.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "feats-pixy",
+      "label": "Feats (Homebrew)",
+      "system": "dnd5e",
+      "path": "packs/feats-pixy.db",
       "type": "Item",
       "private": false,
       "flags": {}

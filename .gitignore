@@ -16,3 +16,4 @@ node_modules/
 # OS Specific
 .DS_Store
 *.db
+packs/src/feats-5e
