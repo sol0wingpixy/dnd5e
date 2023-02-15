@@ -1225,6 +1225,8 @@ export default class Actor5e extends Actor {
    */
   async rollAbilitySave(abilityId, options={}) {
     const label = CONFIG.DND5E.abilities[abilityId] ?? "";
+    console.log("str:" + this.system.abilities[str]);
+    console.log("dex:" + this.system.abilities[dex]);
     const abl = this.system.abilities[abilityId];
     const globalBonuses = this.system.bonuses?.abilities ?? {};
     const parts = [];
