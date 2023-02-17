@@ -1222,17 +1222,22 @@ export default class Actor5e extends Actor {
    * @param {string} abilityId    The ability ID (e.g. "str")
    * @param {object} options      Options which configure how ability tests are rolled
    * @returns {Promise<D20Roll>}  A Promise which resolves to the created Roll instance
+   * str:value,proficient,bonuses,mod,checkProf,saveBonus,saveProf,checkBonus,save,dc
    */
   async rollAbilitySave(abilityId, options={}) {
     const label = CONFIG.DND5E.abilities[abilityId] ?? "";
-    console.log("str:" + this.system.abilities[str]);
-    console.log("dex:" + this.system.abilities[dex]);
-    const abl = this.system.abilities[abilityId];
+    console.log("prof:" + this.system.abilities["str"].proficient);
+
+    console.log("this:" + Object.keys(this.system))
+    
+    const ablPrim = this.system.abilities[abilityId];
+    const ablSec = 
     const globalBonuses = this.system.bonuses?.abilities ?? {};
     const parts = [];
     const data = this.getRollData();
 
     // Add ability modifier
+    // todo: add highest mod + half of lower mod
     parts.push("@mod");
     data.mod = abl?.mod ?? 0;
 
