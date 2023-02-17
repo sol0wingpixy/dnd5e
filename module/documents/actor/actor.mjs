@@ -403,9 +403,53 @@ export default class Actor5e extends Actor {
       abl.saveProf = new Proficiency(this.system.attributes.prof, abl.proficient);
       const checkBonusAbl = simplifyBonus(abl.bonuses?.check, bonusData);
       abl.checkBonus = checkBonusAbl + checkBonus;
-
-      abl.save = abl.mod + abl.saveBonus;
-      if ( Number.isNumeric(abl.saveProf.term) ) abl.save += abl.saveProf.flat;
+    }
+    for ( const [id, abl] of Object.entries(this.system.abilities) ) {
+      console.log("setting save");
+      console.log(id);
+      switch(id)
+      {
+        case "str":
+        case "con":
+          if(this.system.abilities["str"].mod > this.system.abilities["con"].mod)
+          {
+            abl.save = this.system.abilities["str"].mod + Math.trunc(this.system.abilities["con"].mod/2);
+          }
+          else
+          {
+           abl.save = this.system.abilities["con"].mod + Math.trunc(this.system.abilities["str"].mod/2);
+          }
+          break;
+        case "dex":
+          if(this.system.abilities["dex"].mod >= this.system.abilities["int"].mod)
+          {
+            abl.save = this.system.abilities["dex"].mod + Math.trunc(this.system.abilities["int"].mod/2);
+          }
+          else
+          {
+           abl.save = this.system.abilities["int"].mod + Math.trunc(this.system.abilities["dex"].mod/2);
+          }
+          break;
+        case "int":
+          abl.save = this.system.abilities["int"].mod;
+          break;
+        case "wis":
+        case "cha":
+          if(this.system.abilities["wis"].mod >= this.system.abilities["cha"].mod)
+          {
+            abl.save = this.system.abilities["wis"].mod + Math.trunc(this.system.abilities["cha"].mod/2);
+          }
+          else
+          {
+           abl.save = this.system.abilities["cha"].mod + Math.trunc(this.system.abilities["wis"].mod/2);
+          }
+          break;
+      }
+      console.log(abl.save);
+      abl.save += abl.saveBonus;
+      if ( Number.isNumeric(abl.saveProf.term) ) 
+        abl.save += abl.saveProf.flat;
+      console.log(abl.save);
       abl.dc = 8 + abl.mod + this.system.attributes.prof + dcBonus;
 
       // If we merged saves when transforming, take the highest bonus here.
@@ -1294,7 +1338,7 @@ export default class Actor5e extends Actor {
     }
     else
     {
-      data.mod = (abl?.mod ?? 0) + Math.floor(ablSec?.mod/2 ?? 0);
+      data.mod = (abl?.mod ?? 0) + Math.trunc(ablSec?.mod/2 ?? 0);
     }
 
     // Include proficiency bonus
@@ -1302,7 +1346,8 @@ export default class Actor5e extends Actor {
       parts.push("@prof");
       data.prof = abl.saveProf.term;
     }
-    abl.save = data.mod + data.prof;
+    console.log(data.prof);
+    abl.save = parseInt(data.mod) + parseInt(data.prof);
     ablSec.save = abl.save;
     // Include ability-specific saving throw bonus
     if ( abl?.bonuses?.save ) {
