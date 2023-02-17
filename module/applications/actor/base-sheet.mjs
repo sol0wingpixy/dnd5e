@@ -1360,11 +1360,31 @@ export default class ActorSheet5e extends ActorSheet {
     if ( event.currentTarget.classList.contains("disabled") ) return;
     event.preventDefault();
     const field = event.currentTarget.previousElementSibling;
+    console.log(field);
     const value = parseFloat(field.value);
     const levels = [0, 0.5, 1, 1.5, 2];
     let idx = levels.indexOf(value);
     const next = idx + (event.type === "click" ? 1 : 2);
     field.value = levels[next % 5];
+    switch(field.name)
+    {
+      case "system.abilities.str.proficient":
+      case "system.abilities.con.proficient":
+        this.actor.update({["system.abilities.str.proficient"]:parseFloat(field.value)});
+        this.actor.update({["system.abilities.con.proficient"]:parseFloat(field.value)});
+        break;
+      case "system.abilities.dex.proficient":
+        this.actor.update({["system.abilities.dex.proficient"]:parseFloat(field.value)});
+        break;
+      case "system.abilities.int.proficient":
+      case "system.abilities.wis.proficient":
+      case "system.abilities.cha.proficient":
+        this.actor.update({["system.abilities.int.proficient"]:parseFloat(field.value)});
+        this.actor.update({["system.abilities.wis.proficient"]:parseFloat(field.value)});
+        this.actor.update({["system.abilities.cha.proficient"]:parseFloat(field.value)});
+        break;
+    }
+    //reduntant update
     return this.actor.update({[field.name]:parseFloat(field.value)});
     // const parent = event.currentTarget.closest(".skill");
     // const field = parent.querySelector('[name$=".value"]');

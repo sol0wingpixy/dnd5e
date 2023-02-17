@@ -1225,13 +1225,62 @@ export default class Actor5e extends Actor {
    * str:value,proficient,bonuses,mod,checkProf,saveBonus,saveProf,checkBonus,save,dc
    */
   async rollAbilitySave(abilityId, options={}) {
-    const label = CONFIG.DND5E.abilities[abilityId] ?? "";
-    console.log("prof:" + this.system.abilities["str"].proficient);
-
-    console.log("this:" + Object.keys(this.system))
-    
-    const ablPrim = this.system.abilities[abilityId];
-    const ablSec = 
+    var label = "";
+    var primaryId;
+    var secondaryId;
+    switch(abilityId)
+    {
+      case "str":
+      case "con":
+        label = "Fortitude";
+        if(this.system.abilities["str"].mod > this.system.abilities["con"].mod)
+        {
+          primaryId = "str";
+          secondaryId = "con";
+        }
+        else
+        {
+          primaryId = "con";
+          secondaryId = "str";
+        }
+        break;
+      case "dex":
+        label = "Reflex";
+        if(this.system.abilities["dex"].mod >= this.system.abilities["int"].mod)
+        {
+          primaryId = "dex";
+          secondaryId = "int";
+        }
+        else
+        {
+          primaryId = "int";
+          secondaryId = "dex";
+        }
+        break;
+      case "int":
+        label = "Will (Int)";
+        primaryId = "int";
+        secondaryId = "int";
+        break;
+      case "wis":
+      case "cha":
+        label = "Will";
+        if(this.system.abilities["wis"].mod >= this.system.abilities["cha"].mod)
+        {
+          primaryId = "wis";
+          secondaryId = "cha";
+        }
+        else
+        {
+          primaryId = "cha";
+          secondaryId = "wis";
+        }
+        break;
+    }
+    console.log("1: " + primaryId + " 2: " + secondaryId);
+    //'abl' should be primary ability
+    const abl = this.system.abilities[primaryId];
+    const ablSec = this.system?.abilities[secondaryId];
     const globalBonuses = this.system.bonuses?.abilities ?? {};
     const parts = [];
     const data = this.getRollData();
@@ -1239,14 +1288,22 @@ export default class Actor5e extends Actor {
     // Add ability modifier
     // todo: add highest mod + half of lower mod
     parts.push("@mod");
-    data.mod = abl?.mod ?? 0;
+    if(primaryId === secondaryId)
+    {
+      data.mod = abl?.mod ?? 0;
+    }
+    else
+    {
+      data.mod = (abl?.mod ?? 0) + Math.floor(ablSec?.mod/2 ?? 0);
+    }
 
     // Include proficiency bonus
     if ( abl?.saveProf.hasProficiency ) {
       parts.push("@prof");
       data.prof = abl.saveProf.term;
     }
-
+    abl.save = data.mod + data.prof;
+    ablSec.save = abl.save;
     // Include ability-specific saving throw bonus
     if ( abl?.bonuses?.save ) {
       const saveBonusKey = `${abilityId}SaveBonus`;
@@ -1259,7 +1316,6 @@ export default class Actor5e extends Actor {
       parts.push("@saveBonus");
       data.saveBonus = Roll.replaceFormulaData(globalBonuses.save, data);
     }
-
     // Roll and return
     const flavor = game.i18n.format("DND5E.SavePromptTitle", {ability: label});
     const rollData = foundry.utils.mergeObject({
