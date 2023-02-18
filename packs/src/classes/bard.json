@@ -12,7 +12,7 @@
     "source": "SRD 5.1",
     "identifier": "bard",
     "levels": 1,
-    "hitDice": "d12",
+    "hitDice": "d8",
     "hitDiceUsed": 0,
     "advancement": [
       {

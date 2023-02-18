@@ -1,0 +1,89 @@
+{
+    "_id": "resilient0000000",
+    "name": "Resilient",
+    "ownership": {
+      "default": 0
+    },
+    "type": "feat",
+    "system": {
+      "description": {
+        "value": "<p>You increase your level of proficiency in one saving throw of your choice (Reflex, Fortitude, Will). Upgrade the chosen saving throw from Untrained to Trained, Trained to Proficient, Proficient to Expert, or Expert to Master.</p>",
+        "chat": "",
+        "unidentified": ""
+      },
+      "source": "SRD 5.1",
+      "activation": {
+        "type": "",
+        "cost": null,
+        "condition": ""
+      },
+      "duration": {
+        "value": "",
+        "units": ""
+      },
+      "cover": null,
+      "target": {
+        "value": null,
+        "width": null,
+        "units": "",
+        "type": ""
+      },
+      "range": {
+        "value": null,
+        "long": null,
+        "units": ""
+      },
+      "uses": {
+        "value": null,
+        "max": "",
+        "per": null,
+        "recovery": ""
+      },
+      "consume": {
+        "type": "",
+        "target": null,
+        "amount": null
+      },
+      "ability": null,
+      "actionType": "",
+      "attackBonus": "",
+      "chatFlavor": "",
+      "critical": {
+        "threshold": null,
+        "damage": ""
+      },
+      "damage": {
+        "parts": [],
+        "versatile": ""
+      },
+      "formula": "",
+      "save": {
+        "ability": "",
+        "dc": null,
+        "scaling": "spell"
+      },
+      "type": {
+        "value": "class",
+        "subtype": ""
+      },
+      "requirements": "Barbarian 1, Bard 1, Cleric 1, Druid 1, Fighter 1, Monk 1, Paladin 1, Ranger 1, Rogue 1, Sorcerer 1, Warlock 1, Wizard 1",
+      "recharge": {
+        "value": null,
+        "charged": false
+      }
+    },
+    "flags": {},
+    "img": "icons/equipment/shield/heater-stone-orange.webp",
+    "effects": [],
+    "folder": null,
+    "sort": 0,
+    "_stats": {
+      "systemId": "dnd5e",
+      "systemVersion": "2.1.0",
+      "coreVersion": "10.291",
+      "createdTime": 1661787234431,
+      "modifiedTime": 1672334317018,
+      "lastModifiedBy": "Sol0WingPixy"
+    }
+  }
+  
