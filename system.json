@@ -125,6 +125,15 @@
     },
     {
       "name": "races",
+      "label": "Races (SRD)",
+      "system": "dnd5e",
+      "path": "packs/races.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "racialfeatures",
       "label": "Racial Features (SRD)",
       "system": "dnd5e",
       "path": "packs/races.db",
