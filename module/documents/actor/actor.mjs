@@ -405,8 +405,6 @@ export default class Actor5e extends Actor {
       abl.checkBonus = checkBonusAbl + checkBonus;
     }
     for ( const [id, abl] of Object.entries(this.system.abilities) ) {
-      console.log("setting save");
-      console.log(id);
       switch(id)
       {
         case "str":
@@ -445,11 +443,9 @@ export default class Actor5e extends Actor {
           }
           break;
       }
-      console.log(abl.save);
       abl.save += abl.saveBonus;
       if ( Number.isNumeric(abl.saveProf.term) ) 
         abl.save += abl.saveProf.flat;
-      console.log(abl.save);
       abl.dc = 8 + abl.mod + this.system.attributes.prof + dcBonus;
 
       // If we merged saves when transforming, take the highest bonus here.

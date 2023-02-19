@@ -63,7 +63,10 @@ export default class SpellData extends SystemDataModel.mixin(
       scaling: new foundry.data.fields.SchemaField({
         mode: new foundry.data.fields.StringField({required: true, initial: "none", label: "DND5E.ScalingMode"}),
         formula: new FormulaField({required: true, nullable: true, initial: null, label: "DND5E.ScalingFormula"})
-      }, {label: "DND5E.LevelScaling"})
+      }, {label: "DND5E.LevelScaling"}),
+      spellLists: new foundry.data.fields.SchemaField({
+        wiz: new foundry.data.fields.BooleanField({required: false, label: "DND5E.ClassListWizard"})
+      }, {label: "DND5E.SpellList"})
     });
   }
 

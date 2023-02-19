@@ -1180,6 +1180,10 @@ DND5E.spellSchools = {
 };
 preLocalize("spellSchools", { sort: true });
 
+DND5E.spellLists = {
+  wiz: "DND5E.ClassListWizard"
+}
+preLocalize("spellSchools", { sort: true });
 /* -------------------------------------------- */
 
 /**

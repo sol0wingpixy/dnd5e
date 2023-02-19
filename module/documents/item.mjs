@@ -302,6 +302,7 @@ export default class Item5e extends Item {
   /** @inheritDoc */
   prepareDerivedData() {
     super.prepareDerivedData();
+    //console.log(this);
     this.labels = {};
 
     // Clear out linked item cache
@@ -370,6 +371,13 @@ export default class Item5e extends Item {
     this.system.preparation.mode ||= "prepared";
     this.labels.level = CONFIG.DND5E.spellLevels[this.system.level];
     this.labels.school = CONFIG.DND5E.spellSchools[this.system.school];
+    this.labels.spellLists = {};
+    // list each spell list
+   if(this.name === "Acid Splash")
+      console.log(this.system);
+    if(this.system.spellLists?.wiz ?? false){
+      console.log("runs");
+    }
     this.labels.components = Object.entries(this.system.components).reduce((obj, [c, active]) => {
       const config = attributes[c];
       if ( !config || (active !== true) ) return obj;
