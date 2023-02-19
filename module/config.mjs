@@ -90,7 +90,8 @@ DND5E.skills = {
   rel: { label: "DND5E.SkillRel", ability: "int" },
   slt: { label: "DND5E.SkillSlt", ability: "dex" },
   ste: { label: "DND5E.SkillSte", ability: "dex" },
-  sur: { label: "DND5E.SkillSur", ability: "wis" }
+  sur: { label: "DND5E.SkillSur", ability: "wis" },
+  use: { label: "DND5E.SkillUse", ability: "int" }
 };
 preLocalize("skills", { key: "label", sort: true });
 patchConfig("skills", "label", { since: 2.0, until: 2.2 });
